@@ -50,7 +50,7 @@ const Home = () => {
    const fetchExpenses = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("http://localhost:5002/api/v1/expenses", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/expenses`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const Home = () => {
     const isConfirmed=window.confirm("Are you sure you want to delete this expense?");
     if(!isConfirmed) return;
     try{
-        const response=await fetch(`http://localhost:5002/api/v1/expenses/${id}`,{
+        const response=await fetch(`${import.meta.env.VITE_API_URL}/api/v1/expenses/${id}`,{
             method:"DELETE",
             headers:{
                 "Content-Type":"application/json",

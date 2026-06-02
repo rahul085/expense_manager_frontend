@@ -31,13 +31,13 @@ const AddExpenseModal = ({onClose,onExpenseAdded,expensesToEdit}) => {
     const handleAddExpense= async(e)=>{
         e.preventDefault();
         //Assume we are creating a new expense
-        let url='http://localhost:5002/api/v1/expenses';
+        let url=`${import.meta.env.VITE_API_URL}/api/v1/expenses`;
         let httpMethod='POST';
 
         // if we are editing change the url and http method
         if(expensesToEdit){
             const id=expensesToEdit.expenseId || expensesToEdit.id;
-            url=`http://localhost:5002/api/v1/expenses/${id}`;
+            url=`${import.meta.env.VITE_API_URL}/api/v1/expenses/${id}`;
             httpMethod="PUT";
         }
 
